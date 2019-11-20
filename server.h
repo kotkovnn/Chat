@@ -12,8 +12,7 @@ class Server : public QObject
 {
     Q_OBJECT
 public:
-    Server(int port=3445, QObject* parent = nullptr);
-    virtual ~Server();
+    explicit Server(int port=3445, QObject* parent = nullptr);
 
 private:
     QTcpServer* m_server;

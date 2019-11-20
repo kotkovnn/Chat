@@ -11,7 +11,7 @@ Client::Client(const QString& host, int port, QObject *parent) : QObject(parent)
 
 void Client::connected()
 {
-    std::cout << "Connected to server" << std::endl;
+    std::cout << ">>> Connected to server" << std::endl;
 }
 
 void Client::readMessage()
@@ -31,15 +31,10 @@ void Client::sendMessage(const QString& message)
 void Client::err(QAbstractSocket::SocketError error)
 {
     if (error == QAbstractSocket::HostNotFoundError)
-        std::cout << "Host was not found";
+        std::cout << ">>> Host was not found";
     else if (error == QAbstractSocket::RemoteHostClosedError)
-        std::cout << "Remote host is closed";
+        std::cout << ">>> Remote host is closed";
     else if (error == QAbstractSocket::ConnectionRefusedError)
-        std::cout << "Connection was refused";
+        std::cout << ">>> Connection was refused";
     std::cout << std::endl;
-}
-
-Client::~Client()
-{
-    // TODO
 }
